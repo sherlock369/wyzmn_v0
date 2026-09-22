@@ -1,0 +1,403 @@
+/*--------------------------------------------------------------
+# Wyizeman brand overrides — layered on top of Axis's main.css
+# PLACEHOLDER BRANDING: swap fonts/colors here once real logo +
+# hex codes are supplied (see PROGRESS.md).
+---------------------------------------------------------------*/
+
+:root {
+  --default-font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --heading-font: "Source Serif 4", Georgia, serif;
+  --nav-font: "Inter", system-ui, sans-serif;
+}
+
+:root {
+  --background-color: #FAF8F4;      /* warm off-white */
+  --default-color: #4A4E52;         /* charcoal body text */
+  --heading-color: #1C2B39;         /* deep charcoal-navy */
+  --accent-color: #1B3A5C;          /* Wyizeman Blue (placeholder) */
+  --surface-color: #ffffff;
+  --contrast-color: #ffffff;
+  --wz-orange: #C97A34;             /* Wyizeman Orange (placeholder) — sparing use only */
+}
+
+:root {
+  --nav-color: #5B6B76;
+  --nav-hover-color: #1B3A5C;
+  --nav-mobile-background-color: #ffffff;
+  --nav-dropdown-background-color: #ffffff;
+  --nav-dropdown-color: #4A4E52;
+  --nav-dropdown-hover-color: #1B3A5C;
+}
+
+.dark-background {
+  --background-color: #16232E;
+  --default-color: #D8DEE3;
+  --heading-color: #ffffff;
+  --accent-color: #C97A34;
+  --surface-color: #1F2F3B;
+  --contrast-color: #ffffff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--heading-font);
+  font-weight: 600;
+}
+
+/*--------------------------------------------------------------
+# Shared components used across the new Wyizeman pages
+---------------------------------------------------------------*/
+
+/* Numbered eyebrow used in "what we evaluate" / step lists */
+.wz-number {
+  display: inline-block;
+  font-family: var(--heading-font);
+  color: var(--wz-orange);
+  font-weight: 600;
+  margin-right: 0.4em;
+}
+
+/* Page hero used on interior pages (Approach, Investments, CORE, NRI, About, Insights, Contact, 404) */
+.page-hero {
+  padding: 140px 0 70px;
+  background-color: var(--background-color);
+  text-align: center;
+}
+
+.page-hero h1 {
+  font-size: 42px;
+  color: var(--heading-color);
+  margin-bottom: 16px;
+}
+
+.page-hero p {
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 18px;
+  color: var(--default-color);
+}
+
+@media (max-width: 575px) {
+  .page-hero { padding: 110px 0 50px; }
+  .page-hero h1 { font-size: 30px; }
+}
+
+/* Generic content section spacing (used instead of Axis's default section title block on inner pages) */
+.wz-section { padding: 60px 0; }
+.wz-section h2 { color: var(--heading-color); margin-bottom: 18px; }
+.wz-section .lead-text { font-size: 18px; color: var(--default-color); max-width: 760px; }
+
+/* Simple bordered card used for evaluation criteria, principles, risk lists, process steps */
+.wz-card {
+  background: var(--surface-color);
+  border: 1px solid rgba(28, 43, 57, 0.08);
+  border-radius: 6px;
+  padding: 28px;
+  height: 100%;
+}
+
+.wz-card h3, .wz-card h4 {
+  color: var(--heading-color);
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.wz-card p { margin-bottom: 0; color: var(--default-color); }
+
+/* Simple checklist bullets (used for FEMA/documentation/etc lists) */
+.wz-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.wz-list li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 12px;
+  color: var(--default-color);
+}
+
+.wz-list li::before {
+  content: "\f26e"; /* bootstrap-icons check2 */
+  font-family: "bootstrap-icons";
+  position: absolute;
+  left: 0;
+  top: 1px;
+  color: var(--accent-color);
+}
+
+/* Process step layout (CORE page) */
+.wz-process {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 767px) {
+  .wz-process { grid-template-columns: 1fr; }
+}
+
+/* Disclaimer / legal callout box */
+.wz-disclaimer {
+  background: var(--surface-color);
+  border-left: 3px solid var(--wz-orange);
+  padding: 22px 26px;
+  border-radius: 4px;
+  font-size: 14px;
+  color: var(--default-color);
+}
+
+.wz-disclaimer h4 {
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--heading-color);
+  margin-bottom: 10px;
+}
+
+/* Insight article cards (Insights page) */
+.wz-article-card {
+  background: var(--surface-color);
+  border: 1px solid rgba(28, 43, 57, 0.08);
+  border-radius: 6px;
+  padding: 26px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.wz-article-card .category {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--wz-orange);
+  margin-bottom: 10px;
+}
+
+.wz-article-card h3 { font-size: 20px; margin-bottom: 10px; }
+.wz-article-card p { color: var(--default-color); flex-grow: 1; }
+.wz-article-card a { font-weight: 600; }
+
+/* Final CTA band reused across every page */
+.wz-final-cta {
+  padding: 70px 0;
+  text-align: center;
+  background-color: var(--background-color);
+}
+
+.wz-final-cta h2 {
+  font-size: 30px;
+  color: var(--heading-color);
+  margin-bottom: 14px;
+}
+
+.wz-final-cta p { color: var(--default-color); margin-bottom: 26px; }
+
+/* Placeholder-content marker (visible only as an HTML comment convention; this class is a
+   subtle visual flag during build so it's easy to find things still needing real assets) */
+.wz-placeholder-note {
+  display: inline-block;
+  font-size: 12px;
+  color: var(--wz-orange);
+  border: 1px dashed var(--wz-orange);
+  padding: 2px 8px;
+  border-radius: 3px;
+}
+
+/*--------------------------------------------------------------
+# Type-scale tuning — wider contrast between headings and body
+# than Axis's defaults, for a more editorial feel
+---------------------------------------------------------------*/
+.page-hero h1 { font-size: 48px; letter-spacing: -0.01em; }
+.wz-section h2 { font-size: 32px; line-height: 1.25; }
+.hero-content h1 { letter-spacing: -0.01em; }
+
+@media (max-width: 575px) {
+  .wz-section h2 { font-size: 26px; }
+}
+
+/*--------------------------------------------------------------
+# Evaluation Wheel — signature radial diagram used on Home
+# ("What do we look at...") and Approach ("Evaluation Framework")
+---------------------------------------------------------------*/
+.wz-wheel-desktop {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.wz-wheel-desktop svg { width: 100%; height: auto; display: block; }
+
+.wz-wheel-hub-circle {
+  fill: var(--accent-color);
+}
+
+.wz-wheel-hub-text {
+  fill: var(--contrast-color);
+  font-family: var(--heading-font);
+  font-weight: 600;
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+
+.wz-wheel-line {
+  stroke: var(--accent-color);
+  stroke-width: 1.5;
+  opacity: 0.3;
+}
+
+.wz-wheel-node-circle {
+  fill: var(--surface-color);
+  stroke: var(--accent-color);
+  stroke-width: 1.5;
+}
+
+.wz-wheel-node-number {
+  fill: var(--wz-orange);
+  font-family: var(--heading-font);
+  font-weight: 600;
+  font-size: 26px;
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+
+.wz-wheel-node-label {
+  fill: var(--heading-color);
+  font-family: var(--nav-font);
+  font-weight: 500;
+  font-size: 16px;
+  text-anchor: middle;
+}
+
+/*--------------------------------------------------------------
+# Process Chain — horizontal connected-step diagram used on CORE
+---------------------------------------------------------------*/
+.wz-process-chain {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 0;
+  padding: 20px 0 10px;
+  max-width: 100%;
+}
+
+.wz-process-chain .chain-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 118px;
+  flex-shrink: 0;
+}
+
+.wz-process-chain .chain-node {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--surface-color);
+  border: 1.5px solid var(--accent-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--heading-font);
+  font-weight: 600;
+  color: var(--wz-orange);
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.wz-process-chain .chain-step h4 {
+  font-size: 15px;
+  margin: 12px 0 4px;
+  color: var(--heading-color);
+}
+
+.wz-process-chain .chain-step p {
+  font-size: 12px;
+  color: var(--default-color);
+  margin: 0;
+}
+
+.wz-process-chain .chain-line {
+  flex: 1 1 auto;
+  height: 1.5px;
+  background: var(--accent-color);
+  opacity: 0.3;
+  margin-top: 28px;
+  min-width: 16px;
+}
+
+/*--------------------------------------------------------------
+# Pull-quote — editorial rhythm break, deliberately not a card
+---------------------------------------------------------------*/
+.wz-pullquote {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.wz-pullquote .rule {
+  width: 60px;
+  height: 2px;
+  background: var(--wz-orange);
+  margin: 0 auto 24px;
+}
+
+.wz-pullquote p {
+  font-family: var(--heading-font);
+  font-size: 32px;
+  line-height: 1.4;
+  color: var(--heading-color);
+  margin: 0;
+}
+
+.wz-pullquote cite {
+  display: block;
+  margin-top: 16px;
+  font-family: var(--default-font);
+  font-size: 14px;
+  font-style: normal;
+  color: var(--default-color);
+}
+
+@media (max-width: 575px) {
+  .wz-pullquote p { font-size: 22px; }
+}
+
+/*--------------------------------------------------------------
+# Custom line-art illustrations (placeholder for real photography)
+---------------------------------------------------------------*/
+.wz-illustration {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.wz-illustration .stroke {
+  fill: none;
+  stroke: var(--accent-color);
+  stroke-width: 1.5;
+}
+
+.wz-illustration .stroke-faint {
+  fill: none;
+  stroke: var(--accent-color);
+  stroke-width: 1;
+  opacity: 0.25;
+}
+
+.wz-illustration .accent {
+  fill: none;
+  stroke: var(--wz-orange);
+  stroke-width: 2.5;
+}
+
+.wz-illustration .accent-dot {
+  fill: var(--wz-orange);
+}
+
+.wz-icon-line {
+  width: 44px;
+  height: 44px;
+}
