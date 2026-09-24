@@ -7,8 +7,11 @@
   <title>Start a Conversation | Wyizeman Consulting Co.</title>
   <meta name="description" content="Tell us what you're trying to achieve. You don't need to arrive with a property in mind.">
 
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="assets/img/favicon_files/favicon.ico" rel="icon">
+  <link href="assets/img/favicon_files/favicon-32x32.png" rel="icon" type="image/png" sizes="32x32">
+  <link href="assets/img/favicon_files/favicon-16x16.png" rel="icon" type="image/png" sizes="16x16">
+  <link href="assets/img/favicon_files/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="assets/img/favicon_files/site.webmanifest" rel="manifest">
 
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
@@ -29,6 +32,7 @@
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
       <a href="index.html" class="logo d-flex align-items-center">
+        <img src="assets/img/logo/icon-mark.jpg" alt="Wyizeman">
         <h1 class="sitename">Wyizeman</h1>
       </a>
       <nav id="navmenu" class="navmenu">
@@ -61,7 +65,9 @@
           <div class="col-lg-9">
             <div class="form-wrapper">
 
-              <form action="forms/contact.php" method="post" class="php-email-form">
+              <form action="https://formspree.io/f/mqpaldgr" method="post" class="php-email-form" id="contactForm">
+                <input type="hidden" name="_subject" value="New enquiry — Start a Conversation (Wyizeman)">
+                <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
 
                 <div class="row g-3">
                   <div class="col-md-6">
@@ -180,7 +186,7 @@
       <div class="row gy-4">
         <div class="col-lg-5 col-md-12 footer-about">
           <a href="index.html" class="logo d-flex align-items-center">
-            <span class="sitename">Wyizeman Consulting Co.</span>
+            <img src="assets/img/logo/wyizeman-lockup-inverse.png" alt="Wyizeman Consulting Co.">
           </a>
           <p>Real Estate. Curated for Investors.</p>
           <div class="social-links d-flex mt-4">
@@ -230,7 +236,6 @@
   <div id="preloader"></div>
 
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
@@ -238,6 +243,55 @@
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/js/main.js"></script>
+
+  <script>
+    (function () {
+      var form = document.getElementById('contactForm');
+      if (!form) return;
+
+      var loadingEl = form.querySelector('.loading');
+      var errorEl = form.querySelector('.error-message');
+      var sentEl = form.querySelector('.sent-message');
+      var submitBtn = form.querySelector('.submit-btn');
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        loadingEl.style.display = 'block';
+        errorEl.style.display = 'none';
+        sentEl.style.display = 'none';
+        submitBtn.disabled = true;
+
+        fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' }
+        })
+          .then(function (response) {
+            if (response.ok) {
+              loadingEl.style.display = 'none';
+              sentEl.style.display = 'block';
+              form.reset();
+            } else {
+              return response.json().then(function (data) {
+                var message = (data && data.errors)
+              ? data.errors.map(function (e) { return e.message; }).join(', ')
+              : 'Something went wrong while sending your message. Please try again.';
+                throw new Error(message);
+              });
+            }
+          })
+          .catch(function (error) {
+            loadingEl.style.display = 'none';
+            errorEl.textContent = error.message || 'Something went wrong while sending your message. Please try again.';
+            errorEl.style.display = 'block';
+          })
+          .finally(function () {
+            submitBtn.disabled = false;
+          });
+      });
+    })();
+  </script>
 
 </body>
 

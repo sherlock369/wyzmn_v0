@@ -9,8 +9,11 @@
   <meta name="keywords" content="real estate investment, plotted developments, commercial real estate, NRI real estate, CORE by Wyizeman">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="assets/img/favicon_files/favicon.ico" rel="icon">
+  <link href="assets/img/favicon_files/favicon-32x32.png" rel="icon" type="image/png" sizes="32x32">
+  <link href="assets/img/favicon_files/favicon-16x16.png" rel="icon" type="image/png" sizes="16x16">
+  <link href="assets/img/favicon_files/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="assets/img/favicon_files/site.webmanifest" rel="manifest">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -27,7 +30,7 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
-  <!-- Wyizeman Brand Overrides (placeholder colors/fonts — see PROGRESS.md) -->
+  <!-- Wyizeman Brand Overrides -->
   <link href="assets/css/custom.css" rel="stylesheet">
 
   <!-- =======================================================
@@ -42,6 +45,7 @@
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
       <a href="index.html" class="logo d-flex align-items-center">
+        <img src="assets/img/logo/icon-mark.jpg" alt="Wyizeman">
         <h1 class="sitename">Wyizeman</h1>
       </a>
 
@@ -81,16 +85,7 @@
 
           <div class="col-lg-6">
             <div class="hero-image" data-aos="fade-left" data-aos-delay="300">
-              <!-- Placeholder illustration (swap for real photography later) -->
-              <svg class="wz-illustration" viewBox="0 0 400 400" role="img" aria-label="Abstract plotted-land survey illustration">
-                <rect class="stroke-faint" x="20" y="20" width="360" height="360"/>
-                <line class="stroke-faint" x1="20" y1="140" x2="380" y2="140"/>
-                <line class="stroke-faint" x1="20" y1="260" x2="380" y2="260"/>
-                <line class="stroke-faint" x1="150" y1="20" x2="150" y2="380"/>
-                <line class="stroke-faint" x1="270" y1="20" x2="270" y2="380"/>
-                <rect class="accent" x="150" y="140" width="120" height="120"/>
-                <circle class="accent-dot" cx="210" cy="200" r="6"/>
-              </svg>
+              <img src="assets/img/bundle/img1.jpg" alt="Premium real estate architecture" class="img-fluid" loading="lazy">
             </div>
           </div>
         </div>
@@ -229,61 +224,36 @@
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-        <!-- Evaluation Wheel — desktop -->
-        <div class="wz-wheel-desktop d-none d-md-block" data-aos="zoom-in" data-aos-delay="100">
-          <svg viewBox="0 0 600 600" role="img" aria-label="Evaluation framework: seven criteria examined before an opportunity reaches an investor">
-            <g class="wz-wheel-lines">
-              <line class="wz-wheel-line" x1="300" y1="300" x2="300" y2="90"/>
-              <line class="wz-wheel-line" x1="300" y1="300" x2="464" y2="169"/>
-              <line class="wz-wheel-line" x1="300" y1="300" x2="505" y2="347"/>
-              <line class="wz-wheel-line" x1="300" y1="300" x2="391" y2="489"/>
-              <line class="wz-wheel-line" x1="300" y1="300" x2="209" y2="489"/>
-              <line class="wz-wheel-line" x1="300" y1="300" x2="95" y2="347"/>
-              <line class="wz-wheel-line" x1="300" y1="300" x2="136" y2="169"/>
-            </g>
-            <circle class="wz-wheel-hub-circle" cx="300" cy="300" r="66"/>
-            <text class="wz-wheel-hub-text" x="300" y="293" font-size="16">The</text>
-            <text class="wz-wheel-hub-text" x="300" y="315" font-size="16">Opportunity</text>
-
-            <circle class="wz-wheel-node-circle" cx="300" cy="90" r="42"/>
-            <text class="wz-wheel-node-number" x="300" y="90">01</text>
-            <text class="wz-wheel-node-label" x="300" y="34">Developer</text>
-
-            <circle class="wz-wheel-node-circle" cx="464" cy="169" r="42"/>
-            <text class="wz-wheel-node-number" x="464" y="169">02</text>
-            <text class="wz-wheel-node-label" x="510" y="127">Asset</text>
-
-            <circle class="wz-wheel-node-circle" cx="505" cy="347" r="42"/>
-            <text class="wz-wheel-node-number" x="505" y="347">03</text>
-            <text class="wz-wheel-node-label" x="561" y="358">Location</text>
-
-            <circle class="wz-wheel-node-circle" cx="391" cy="489" r="42"/>
-            <text class="wz-wheel-node-number" x="391" y="489">04</text>
-            <text class="wz-wheel-node-label" x="416" y="545">Entry Value</text>
-
-            <circle class="wz-wheel-node-circle" cx="209" cy="489" r="42"/>
-            <text class="wz-wheel-node-number" x="209" y="489">05</text>
-            <text class="wz-wheel-node-label" x="184" y="545">Economics</text>
-
-            <circle class="wz-wheel-node-circle" cx="95" cy="347" r="42"/>
-            <text class="wz-wheel-node-number" x="95" y="347">06</text>
-            <text class="wz-wheel-node-label" x="39" y="358">Risk</text>
-
-            <circle class="wz-wheel-node-circle" cx="136" cy="169" r="42"/>
-            <text class="wz-wheel-node-number" x="136" y="169">07</text>
-            <text class="wz-wheel-node-label" x="90" y="127">Exit</text>
-          </svg>
+        <div class="wz-criteria-slider swiper init-swiper" data-aos="fade-up" data-aos-delay="100">
+          <script type="application/json" class="swiper-config">
+            {
+              "slidesPerView": 1.15,
+              "spaceBetween": 0,
+              "navigation": {
+                "nextEl": ".wz-criteria-next",
+                "prevEl": ".wz-criteria-prev"
+              },
+              "breakpoints": {
+                "576": { "slidesPerView": 1.8 },
+                "768": { "slidesPerView": 2.4 },
+                "992": { "slidesPerView": 3.2 },
+                "1200": { "slidesPerView": 4.2 }
+              }
+            }
+          </script>
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><div class="wz-criteria-slide"><div class="num">01</div><h4>Developer</h4><p>Track record, execution capability, financial strength and delivery history.</p></div></div>
+            <div class="swiper-slide"><div class="wz-criteria-slide"><div class="num">02</div><h4>Asset & Documentation</h4><p>Ownership, approvals, RERA compliance where applicable and transaction documentation.</p></div></div>
+            <div class="swiper-slide"><div class="wz-criteria-slide"><div class="num">03</div><h4>Location</h4><p>Infrastructure, demand drivers, accessibility, competing supply and long-term potential.</p></div></div>
+            <div class="swiper-slide"><div class="wz-criteria-slide"><div class="num">04</div><h4>Entry Value</h4><p>Price relative to the market, comparable assets and the stage at which the investment is being entered.</p></div></div>
+            <div class="swiper-slide"><div class="wz-criteria-slide"><div class="num">05</div><h4>Investment Economics</h4><p>Potential income, appreciation, capital requirement and expected holding period.</p></div></div>
+            <div class="swiper-slide"><div class="wz-criteria-slide"><div class="num">06</div><h4>Risk</h4><p>Market, developer, execution, tenant and liquidity considerations.</p></div></div>
+            <div class="swiper-slide"><div class="wz-criteria-slide"><div class="num">07</div><h4>Exit</h4><p>Potential buyer universe, resale depth and realistic exit possibilities.</p></div></div>
+          </div>
         </div>
-
-        <!-- Evaluation list — mobile fallback -->
-        <div class="row g-4 d-md-none">
-          <div class="col-md-6"><div class="wz-card"><h4><span class="wz-number">01</span>Developer</h4><p>Track record, execution capability, financial strength and delivery history.</p></div></div>
-          <div class="col-md-6"><div class="wz-card"><h4><span class="wz-number">02</span>Asset & Documentation</h4><p>Ownership, approvals, RERA compliance where applicable and transaction documentation.</p></div></div>
-          <div class="col-md-6"><div class="wz-card"><h4><span class="wz-number">03</span>Location</h4><p>Infrastructure, demand drivers, accessibility, competing supply and long-term potential.</p></div></div>
-          <div class="col-md-6"><div class="wz-card"><h4><span class="wz-number">04</span>Entry Value</h4><p>Price relative to the market, comparable assets and the stage at which the investment is being entered.</p></div></div>
-          <div class="col-md-6"><div class="wz-card"><h4><span class="wz-number">05</span>Investment Economics</h4><p>Potential income, appreciation, capital requirement and expected holding period.</p></div></div>
-          <div class="col-md-6"><div class="wz-card"><h4><span class="wz-number">06</span>Risk</h4><p>Market, developer, execution, tenant and liquidity considerations.</p></div></div>
-          <div class="col-md-6"><div class="wz-card"><h4><span class="wz-number">07</span>Exit</h4><p>Potential buyer universe, resale depth and realistic exit possibilities.</p></div></div>
+        <div class="wz-criteria-nav">
+          <div class="swiper-button-prev wz-criteria-prev"></div>
+          <div class="swiper-button-next wz-criteria-next"></div>
         </div>
 
         <div class="text-center mt-5" data-aos="fade-up">
@@ -303,6 +273,7 @@
         <div class="row gy-5">
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
             <div class="service-item">
+              <div class="wz-photo mb-3"><img src="assets/img/bundle/land6.jpg" alt="Aerial view of a plotted development" loading="lazy"></div>
               <div class="service-icon"><i class="bi bi-signpost-split"></i></div>
               <h3>Premium Plotted Developments</h3>
               <p>Select plotted and villa developments from established developers where location, entry value, demand and future liquidity create an investment case worth examining.</p>
@@ -310,6 +281,7 @@
           </div>
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
             <div class="service-item">
+              <div class="wz-photo mb-3"><img src="assets/img/bundle/sky6.jpg" alt="Premium commercial real estate tower" loading="lazy"></div>
               <div class="service-icon"><i class="bi bi-building-gear"></i></div>
               <h3>Income-Producing Commercial Real Estate</h3>
               <p>Select leased commercial assets evaluated across tenant quality, lease structure, yield, location, building quality and eventual exit potential.</p>
@@ -327,10 +299,18 @@
       <div class="container text-center" data-aos="fade-up">
         <h2>Many relationships. Few recommendations.</h2>
         <p class="lead-text mx-auto">Our access across established developers allows us to examine a wider opportunity universe while remaining selective about what reaches an investor.</p>
-        <div class="mt-4">
-          <span class="wz-placeholder-note">Placeholder — premium developer logos to be added</span>
+      </div>
+      <div class="wz-marquee mt-5">
+        <div class="wz-marquee-track">
+          <img src="assets/img/brands/dlf.svg" alt="DLF">
+          <img src="assets/img/brands/godrej.png" alt="Godrej">
+          <img src="assets/img/brands/hoabl-logo.png" alt="The House of Abhinandan Lodha">
+          <img src="assets/img/brands/dlf.svg" alt="DLF">
+          <img src="assets/img/brands/godrej.png" alt="Godrej">
+          <img src="assets/img/brands/hoabl-logo.png" alt="The House of Abhinandan Lodha">
         </div>
       </div>
+      <p class="text-center mt-3" style="color: var(--default-color); font-size: 14px;">...and more.</p>
     </section><!-- /Many relationships -->
 
     <!-- Beyond the retail market (CORE teaser) -->
@@ -385,7 +365,7 @@
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
             <div class="team-member">
               <div class="member-img">
-                <img src="assets/img/person/person-m-12.webp" class="img-fluid" alt="Manu Agarwal" loading="lazy">
+                <img src="assets/img/person/Manu_Agarwal.jpeg" class="img-fluid" alt="Manu Agarwal" loading="lazy">
               </div>
               <div class="member-info">
                 <h4>Manu Agarwal</h4>
@@ -400,7 +380,7 @@
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
             <div class="team-member">
               <div class="member-img">
-                <img src="assets/img/person/person-m-7.webp" class="img-fluid" alt="CA Anuj Agarwal" loading="lazy">
+                <img src="assets/img/person/CA_Anuj.jpeg" class="img-fluid" alt="CA Anuj Agarwal" loading="lazy">
               </div>
               <div class="member-info">
                 <h4>CA Anuj Agarwal</h4>
@@ -427,19 +407,26 @@
       </div>
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <div class="row g-4">
-          <div class="col-md-6">
-            <div class="wz-card text-center py-5">
-              <i class="bi bi-play-circle" style="font-size: 2.5rem; color: var(--accent-color);"></i>
-              <p class="mt-3 mb-0 wz-placeholder-note">Placeholder — Video Testimonial 1</p>
+          <div class="col-md-4">
+            <div class="wz-card wz-testimonial">
+              <p>"Straightforward, research-led conversations — no pressure to buy anything."</p>
+              <cite>— Rajesh · Mumbai</cite>
             </div>
           </div>
-          <div class="col-md-6">
-            <div class="wz-card text-center py-5">
-              <i class="bi bi-play-circle" style="font-size: 2.5rem; color: var(--accent-color);"></i>
-              <p class="mt-3 mb-0 wz-placeholder-note">Placeholder — Video Testimonial 2</p>
+          <div class="col-md-4">
+            <div class="wz-card wz-testimonial">
+              <p>"Helped me think through risk before I even looked at a property."</p>
+              <cite>— Priya · Bengaluru</cite>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="wz-card wz-testimonial">
+              <p>"Made investing in India from abroad far less overwhelming."</p>
+              <cite>— Arjun · Dubai (NRI)</cite>
             </div>
           </div>
         </div>
+        <p class="text-center mt-4 wz-placeholder-note">Placeholder testimonials — to be replaced with client feedback</p>
       </div>
     </section><!-- /Investor Experiences -->
 
@@ -477,7 +464,7 @@
       <div class="row gy-4">
         <div class="col-lg-5 col-md-12 footer-about">
           <a href="index.html" class="logo d-flex align-items-center">
-            <span class="sitename">Wyizeman Consulting Co.</span>
+            <img src="assets/img/logo/wyizeman-lockup-inverse.png" alt="Wyizeman Consulting Co.">
           </a>
           <p>Real Estate. Curated for Investors.</p>
           <div class="social-links d-flex mt-4">

@@ -7,8 +7,11 @@
   <title>Approach | Wyizeman Consulting Co.</title>
   <meta name="description" content="Before discussing an opportunity, we first try to understand the investor. Before recommending one, we try to understand the investment.">
 
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="assets/img/favicon_files/favicon.ico" rel="icon">
+  <link href="assets/img/favicon_files/favicon-32x32.png" rel="icon" type="image/png" sizes="32x32">
+  <link href="assets/img/favicon_files/favicon-16x16.png" rel="icon" type="image/png" sizes="16x16">
+  <link href="assets/img/favicon_files/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="assets/img/favicon_files/site.webmanifest" rel="manifest">
 
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
@@ -29,6 +32,7 @@
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
       <a href="index.html" class="logo d-flex align-items-center">
+        <img src="assets/img/logo/icon-mark.jpg" alt="Wyizeman">
         <h1 class="sitename">Wyizeman</h1>
       </a>
       <nav id="navmenu" class="navmenu">
@@ -57,8 +61,15 @@
 
     <section class="wz-section">
       <div class="container" data-aos="fade-up">
-        <h2>Real estate deserves more than a sales pitch.</h2>
-        <p class="lead-text">A recognised developer, promising location or attractive brochure does not automatically make a property a good investment. Price, timing, supply, demand, holding period, liquidity and exit can materially change the outcome. Our role is to examine these factors together rather than allowing one attractive feature to define the entire decision.</p>
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-6">
+            <h2>Real estate deserves more than a sales pitch.</h2>
+            <p class="lead-text">A recognised developer, promising location or attractive brochure does not automatically make a property a good investment. Price, timing, supply, demand, holding period, liquidity and exit can materially change the outcome. Our role is to examine these factors together rather than allowing one attractive feature to define the entire decision.</p>
+          </div>
+          <div class="col-lg-6">
+            <div class="wz-photo"><img src="assets/img/bundle/img2.jpg" alt="Bright, clear interior space" loading="lazy"></div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -89,61 +100,36 @@
       <div class="container" data-aos="fade-up">
         <h2>Our Evaluation Framework</h2>
 
-        <!-- Evaluation Wheel — desktop -->
-        <div class="wz-wheel-desktop d-none d-md-block" data-aos="zoom-in" data-aos-delay="100">
-          <svg viewBox="0 0 600 600" role="img" aria-label="Evaluation framework: seven criteria examined before an opportunity reaches an investor">
-            <g class="wz-wheel-lines">
-              <line class="wz-wheel-line" x1="300" y1="300" x2="300" y2="90"/>
-              <line class="wz-wheel-line" x1="300" y1="300" x2="464" y2="169"/>
-              <line class="wz-wheel-line" x1="300" y1="300" x2="505" y2="347"/>
-              <line class="wz-wheel-line" x1="300" y1="300" x2="391" y2="489"/>
-              <line class="wz-wheel-line" x1="300" y1="300" x2="209" y2="489"/>
-              <line class="wz-wheel-line" x1="300" y1="300" x2="95" y2="347"/>
-              <line class="wz-wheel-line" x1="300" y1="300" x2="136" y2="169"/>
-            </g>
-            <circle class="wz-wheel-hub-circle" cx="300" cy="300" r="66"/>
-            <text class="wz-wheel-hub-text" x="300" y="293" font-size="16">The</text>
-            <text class="wz-wheel-hub-text" x="300" y="315" font-size="16">Opportunity</text>
-
-            <circle class="wz-wheel-node-circle" cx="300" cy="90" r="42"/>
-            <text class="wz-wheel-node-number" x="300" y="90">01</text>
-            <text class="wz-wheel-node-label" x="300" y="34">Developer</text>
-
-            <circle class="wz-wheel-node-circle" cx="464" cy="169" r="42"/>
-            <text class="wz-wheel-node-number" x="464" y="169">02</text>
-            <text class="wz-wheel-node-label" x="510" y="127">Asset</text>
-
-            <circle class="wz-wheel-node-circle" cx="505" cy="347" r="42"/>
-            <text class="wz-wheel-node-number" x="505" y="347">03</text>
-            <text class="wz-wheel-node-label" x="561" y="358">Location</text>
-
-            <circle class="wz-wheel-node-circle" cx="391" cy="489" r="42"/>
-            <text class="wz-wheel-node-number" x="391" y="489">04</text>
-            <text class="wz-wheel-node-label" x="416" y="545">Entry Value</text>
-
-            <circle class="wz-wheel-node-circle" cx="209" cy="489" r="42"/>
-            <text class="wz-wheel-node-number" x="209" y="489">05</text>
-            <text class="wz-wheel-node-label" x="184" y="545">Economics</text>
-
-            <circle class="wz-wheel-node-circle" cx="95" cy="347" r="42"/>
-            <text class="wz-wheel-node-number" x="95" y="347">06</text>
-            <text class="wz-wheel-node-label" x="39" y="358">Risk</text>
-
-            <circle class="wz-wheel-node-circle" cx="136" cy="169" r="42"/>
-            <text class="wz-wheel-node-number" x="136" y="169">07</text>
-            <text class="wz-wheel-node-label" x="90" y="127">Exit</text>
-          </svg>
+        <div class="wz-criteria-slider swiper init-swiper" data-aos="fade-up" data-aos-delay="100">
+          <script type="application/json" class="swiper-config">
+            {
+              "slidesPerView": 1.15,
+              "spaceBetween": 0,
+              "navigation": {
+                "nextEl": ".wz-criteria-next",
+                "prevEl": ".wz-criteria-prev"
+              },
+              "breakpoints": {
+                "576": { "slidesPerView": 1.8 },
+                "768": { "slidesPerView": 2.4 },
+                "992": { "slidesPerView": 3.2 },
+                "1200": { "slidesPerView": 4.2 }
+              }
+            }
+          </script>
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><div class="wz-criteria-slide"><div class="num">01</div><h4>Developer</h4><p>Who is responsible for execution and what gives us confidence in their ability to deliver?</p></div></div>
+            <div class="swiper-slide"><div class="wz-criteria-slide"><div class="num">02</div><h4>Asset</h4><p>What exactly is being acquired and what legal, regulatory and physical characteristics affect it?</p></div></div>
+            <div class="swiper-slide"><div class="wz-criteria-slide"><div class="num">03</div><h4>Location</h4><p>What creates demand here today, and what may strengthen or weaken that demand tomorrow?</p></div></div>
+            <div class="swiper-slide"><div class="wz-criteria-slide"><div class="num">04</div><h4>Entry Value</h4><p>Are we entering at a price that leaves a reasonable investment case?</p></div></div>
+            <div class="swiper-slide"><div class="wz-criteria-slide"><div class="num">05</div><h4>Investment Economics</h4><p>How can the investment create value, and over what period?</p></div></div>
+            <div class="swiper-slide"><div class="wz-criteria-slide"><div class="num">06</div><h4>Risk</h4><p>What could prevent the expected outcome from materialising?</p></div></div>
+            <div class="swiper-slide"><div class="wz-criteria-slide"><div class="num">07</div><h4>Exit</h4><p>Who is likely to buy this asset from the investor in the future, and why?</p></div></div>
+          </div>
         </div>
-
-        <!-- Evaluation list — mobile fallback -->
-        <div class="row g-4 mt-2 d-md-none">
-          <div class="col-md-6"><div class="wz-card"><h4><span class="wz-number">01</span>Developer</h4><p>Who is responsible for execution and what gives us confidence in their ability to deliver?</p></div></div>
-          <div class="col-md-6"><div class="wz-card"><h4><span class="wz-number">02</span>Asset</h4><p>What exactly is being acquired and what legal, regulatory and physical characteristics affect it?</p></div></div>
-          <div class="col-md-6"><div class="wz-card"><h4><span class="wz-number">03</span>Location</h4><p>What creates demand here today, and what may strengthen or weaken that demand tomorrow?</p></div></div>
-          <div class="col-md-6"><div class="wz-card"><h4><span class="wz-number">04</span>Entry Value</h4><p>Are we entering at a price that leaves a reasonable investment case?</p></div></div>
-          <div class="col-md-6"><div class="wz-card"><h4><span class="wz-number">05</span>Investment Economics</h4><p>How can the investment create value, and over what period?</p></div></div>
-          <div class="col-md-6"><div class="wz-card"><h4><span class="wz-number">06</span>Risk</h4><p>What could prevent the expected outcome from materialising?</p></div></div>
-          <div class="col-md-6"><div class="wz-card"><h4><span class="wz-number">07</span>Exit</h4><p>Who is likely to buy this asset from the investor in the future, and why?</p></div></div>
+        <div class="wz-criteria-nav">
+          <div class="swiper-button-prev wz-criteria-prev"></div>
+          <div class="swiper-button-next wz-criteria-next"></div>
         </div>
       </div>
     </section>
@@ -177,12 +163,8 @@
             </ul>
           </div>
         </div>
-      </div>
-    </section>
 
-    <section class="wz-section">
-      <div class="container" data-aos="fade-up">
-        <div class="wz-disclaimer">
+        <div class="wz-disclaimer mt-5">
           <h4>Transparency includes how we are compensated.</h4>
           <p>Depending upon the transaction, Wyizeman may receive professional or transaction-based compensation from a developer, seller or other transaction counterparty. We believe investors should understand this. Our opportunity evaluation is designed around investment merit and investor suitability rather than the compensation associated with a particular transaction.</p>
         </div>
@@ -224,7 +206,7 @@
       <div class="row gy-4">
         <div class="col-lg-5 col-md-12 footer-about">
           <a href="index.html" class="logo d-flex align-items-center">
-            <span class="sitename">Wyizeman Consulting Co.</span>
+            <img src="assets/img/logo/wyizeman-lockup-inverse.png" alt="Wyizeman Consulting Co.">
           </a>
           <p>Real Estate. Curated for Investors.</p>
           <div class="social-links d-flex mt-4">

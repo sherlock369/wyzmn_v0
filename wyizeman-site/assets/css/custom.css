@@ -1,7 +1,7 @@
 /*--------------------------------------------------------------
 # Wyizeman brand overrides — layered on top of Axis's main.css
-# PLACEHOLDER BRANDING: swap fonts/colors here once real logo +
-# hex codes are supplied (see PROGRESS.md).
+# Real brand colors, confirmed by the client from the logo file:
+# Wyizeman Blue #0188F5, Wyizeman Orange #F7941E.
 ---------------------------------------------------------------*/
 
 :root {
@@ -14,26 +14,26 @@
   --background-color: #FAF8F4;      /* warm off-white */
   --default-color: #4A4E52;         /* charcoal body text */
   --heading-color: #1C2B39;         /* deep charcoal-navy */
-  --accent-color: #1B3A5C;          /* Wyizeman Blue (placeholder) */
+  --accent-color: #0188F5;          /* Wyizeman Blue */
   --surface-color: #ffffff;
   --contrast-color: #ffffff;
-  --wz-orange: #C97A34;             /* Wyizeman Orange (placeholder) — sparing use only */
+  --wz-orange: #F7941E;             /* Wyizeman Orange — sparing use only */
 }
 
 :root {
   --nav-color: #5B6B76;
-  --nav-hover-color: #1B3A5C;
+  --nav-hover-color: #0188F5;
   --nav-mobile-background-color: #ffffff;
   --nav-dropdown-background-color: #ffffff;
   --nav-dropdown-color: #4A4E52;
-  --nav-dropdown-hover-color: #1B3A5C;
+  --nav-dropdown-hover-color: #0188F5;
 }
 
 .dark-background {
   --background-color: #16232E;
   --default-color: #D8DEE3;
   --heading-color: #ffffff;
-  --accent-color: #C97A34;
+  --accent-color: #F7941E;
   --surface-color: #1F2F3B;
   --contrast-color: #ffffff;
 }
@@ -82,7 +82,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Generic content section spacing (used instead of Axis's default section title block on inner pages) */
-.wz-section { padding: 60px 0; }
+.wz-section { padding: 50px 0; }
+
+@media (max-width: 575px) {
+  .wz-section { padding: 36px 0; }
+}
 .wz-section h2 { color: var(--heading-color); margin-bottom: 18px; }
 .wz-section .lead-text { font-size: 18px; color: var(--default-color); max-width: 760px; }
 
@@ -217,55 +221,98 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*--------------------------------------------------------------
-# Evaluation Wheel — signature radial diagram used on Home
-# ("What do we look at...") and Approach ("Evaluation Framework")
+# Criteria Carousel — editorial numeral + text slides, used on Home
+# ("What do we look at...") and Approach ("Evaluation Framework").
+# Swiper handles the mechanics (already loaded sitewide); slidesPerView
+# is fractional on purpose so the next numeral peeks in at every size,
+# signalling there's more to scroll to.
 ---------------------------------------------------------------*/
-.wz-wheel-desktop {
-  max-width: 640px;
-  margin: 0 auto;
+.wz-criteria-slider {
+  padding-bottom: 10px;
 }
 
-.wz-wheel-desktop svg { width: 100%; height: auto; display: block; }
-
-.wz-wheel-hub-circle {
-  fill: var(--accent-color);
+.wz-criteria-slider .swiper-wrapper {
+  align-items: stretch;
 }
 
-.wz-wheel-hub-text {
-  fill: var(--contrast-color);
+.wz-criteria-slide {
+  height: 100%;
+  padding: 8px 36px 8px 0;
+  border-right: 1px solid rgba(28, 43, 57, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.wz-criteria-slide .num {
   font-family: var(--heading-font);
   font-weight: 600;
-  text-anchor: middle;
-  dominant-baseline: middle;
+  font-size: 64px;
+  line-height: 1;
+  color: var(--wz-orange);
+  margin-bottom: 18px;
 }
 
-.wz-wheel-line {
-  stroke: var(--accent-color);
-  stroke-width: 1.5;
-  opacity: 0.3;
+.wz-criteria-slide h4 {
+  font-size: 20px;
+  color: var(--heading-color);
+  margin-bottom: 10px;
 }
 
-.wz-wheel-node-circle {
-  fill: var(--surface-color);
-  stroke: var(--accent-color);
-  stroke-width: 1.5;
+.wz-criteria-slide p {
+  color: var(--default-color);
+  margin: 0;
 }
 
-.wz-wheel-node-number {
-  fill: var(--wz-orange);
-  font-family: var(--heading-font);
-  font-weight: 600;
-  font-size: 26px;
-  text-anchor: middle;
-  dominant-baseline: middle;
+.wz-criteria-nav {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 32px;
 }
 
-.wz-wheel-node-label {
-  fill: var(--heading-color);
-  font-family: var(--nav-font);
-  font-weight: 500;
+.wz-criteria-nav .swiper-button-prev,
+.wz-criteria-nav .swiper-button-next {
+  position: relative;
+  top: auto;
+  left: auto;
+  right: auto;
+  bottom: auto;
+  width: 44px;
+  height: 44px;
+  margin-top: 0;
+  border-radius: 50%;
+  border: 1.5px solid var(--accent-color);
+  color: var(--accent-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  transition: background-color 0.25s, color 0.25s;
+}
+
+.wz-criteria-nav .swiper-button-prev::after,
+.wz-criteria-nav .swiper-button-next::after {
+  font-family: "bootstrap-icons";
   font-size: 16px;
-  text-anchor: middle;
+}
+
+.wz-criteria-nav .swiper-button-prev::after { content: "\f284"; }
+.wz-criteria-nav .swiper-button-next::after { content: "\f285"; }
+
+.wz-criteria-nav .swiper-button-prev:hover,
+.wz-criteria-nav .swiper-button-next:hover {
+  background-color: var(--accent-color);
+  color: var(--contrast-color);
+}
+
+.wz-criteria-nav .swiper-button-disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+@media (max-width: 575px) {
+  .wz-criteria-slide { padding: 8px 24px 8px 0; }
+  .wz-criteria-slide .num { font-size: 48px; }
 }
 
 /*--------------------------------------------------------------
@@ -400,4 +447,131 @@ h1, h2, h3, h4, h5, h6 {
 .wz-icon-line {
   width: 44px;
   height: 44px;
+}
+
+/* Small labeled-node marks used inside .wz-illustration SVGs (e.g. NRI's overseas/India diagram) */
+.wz-node-circle {
+  fill: var(--surface-color);
+  stroke: var(--accent-color);
+  stroke-width: 1.5;
+}
+
+.wz-node-label {
+  fill: var(--heading-color);
+  font-family: var(--nav-font);
+  font-weight: 500;
+  text-anchor: middle;
+}
+
+/*--------------------------------------------------------------
+# Team photos — force a consistent crop regardless of the source
+# photo's native aspect ratio (real headshots vary; Axis's default
+# width:100%/height:auto assumed uniform stock-photo dimensions)
+---------------------------------------------------------------*/
+.team .team-member .member-img {
+  aspect-ratio: 1 / 1;
+}
+
+.team .team-member .member-img img {
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+/*--------------------------------------------------------------
+# Logo — header icon + footer lockup
+---------------------------------------------------------------*/
+.header .logo img {
+  max-height: 34px;
+  width: auto;
+  margin-right: 8px;
+}
+
+.footer-about .logo img {
+  max-height: 90px;
+  width: auto;
+  margin-bottom: 4px;
+}
+
+/*--------------------------------------------------------------
+# Real photography sections (hero photo, feature photos)
+---------------------------------------------------------------*/
+.wz-photo {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.wz-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Reserved for full-width single banner photos (e.g. CORE's land shot) — a wider, shorter crop than the default card ratio */
+.wz-photo.wz-photo-tall { aspect-ratio: 16 / 9; }
+
+/* NRI "local judgement" photo — crop to the clean left portion, avoids debris on the right edge of the source image */
+.wz-photo-nri img {
+  object-position: 20% center;
+}
+
+/*--------------------------------------------------------------
+# Developer logos marquee (Home)
+---------------------------------------------------------------*/
+.wz-marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.wz-marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+  width: max-content;
+  animation: wz-marquee-scroll 24s linear infinite;
+}
+
+.wz-marquee:hover .wz-marquee-track {
+  animation-play-state: paused;
+}
+
+.wz-marquee-track img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.75;
+  transition: opacity 0.3s, filter 0.3s;
+}
+
+.wz-marquee-track img:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+@keyframes wz-marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/*--------------------------------------------------------------
+# Testimonial cards (text-based, simple/generic placeholders)
+---------------------------------------------------------------*/
+.wz-testimonial p {
+  font-family: var(--heading-font);
+  font-size: 17px;
+  color: var(--heading-color);
+  margin-bottom: 14px;
+}
+
+.wz-testimonial cite {
+  display: block;
+  font-family: var(--default-font);
+  font-style: normal;
+  font-size: 13px;
+  color: var(--default-color);
 }
