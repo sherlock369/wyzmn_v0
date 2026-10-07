@@ -237,10 +237,20 @@ h1, h2, h3, h4, h5, h6 {
 
 .wz-criteria-slide {
   height: 100%;
-  padding: 8px 36px 8px 0;
-  border-right: 1px solid rgba(28, 43, 57, 0.1);
+  margin: 8px 18px 20px 0;
+  padding: 24px 22px;
+  background: var(--surface-color);
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 16px 32px -8px rgba(28, 43, 57, 0.18), 0 4px 10px rgba(28, 43, 57, 0.08);
   display: flex;
   flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.wz-criteria-slide:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 44px -8px rgba(28, 43, 57, 0.24), 0 6px 14px rgba(28, 43, 57, 0.1);
 }
 
 .wz-criteria-slide .num {
@@ -482,13 +492,17 @@ h1, h2, h3, h4, h5, h6 {
 # Logo — header icon + footer lockup
 ---------------------------------------------------------------*/
 .header .logo img {
-  max-height: 34px;
+  max-height: 84px;
   width: auto;
-  margin-right: 8px;
+  margin-right: 0;
+}
+
+@media (max-width: 575px) {
+  .header .logo img { max-height: 68px; }
 }
 
 .footer-about .logo img {
-  max-height: 90px;
+  max-height: 130px;
   width: auto;
   margin-bottom: 4px;
 }
@@ -532,7 +546,7 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   gap: 64px;
   width: max-content;
-  animation: wz-marquee-scroll 24s linear infinite;
+  animation: wz-marquee-scroll 52s linear infinite;
 }
 
 .wz-marquee:hover .wz-marquee-track {
@@ -574,4 +588,214 @@ h1, h2, h3, h4, h5, h6 {
   font-style: normal;
   font-size: 13px;
   color: var(--default-color);
+}
+
+.wz-video-testimonial {
+  background: var(--surface-color);
+  border: 1px solid rgba(28, 43, 57, 0.08);
+  border-radius: 6px;
+  padding: 16px;
+}
+
+.wz-video-testimonial video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 4px;
+  background: #000;
+  display: block;
+}
+
+.wz-video-testimonial cite {
+  display: block;
+  margin-top: 12px;
+  text-align: center;
+  font-style: normal;
+  font-size: 13px;
+  color: var(--default-color);
+}
+
+/*--------------------------------------------------------------
+# Long-form legal page copy (Privacy / Terms / Disclaimer)
+---------------------------------------------------------------*/
+.wz-legal-content {
+  max-width: 760px;
+}
+
+.wz-legal-content .wz-legal-meta {
+  color: var(--default-color);
+  font-size: 14px;
+  font-style: italic;
+  margin-bottom: 24px;
+}
+
+.wz-legal-content h3 {
+  color: var(--heading-color);
+  font-size: 19px;
+  margin-top: 36px;
+  margin-bottom: 10px;
+}
+
+.wz-legal-content p,
+.wz-legal-content ul.wz-list {
+  color: var(--default-color);
+  font-size: 15px;
+  line-height: 1.75;
+  list-style: disc;
+  padding-left: 20px;
+}
+
+.wz-legal-content ul.wz-list li {
+  padding-left: 4px;
+  margin-bottom: 8px;
+}
+
+.wz-legal-content ul.wz-list li::before {
+  content: none;
+}
+
+/*--------------------------------------------------------------
+# Heading accent — short colored underline under every section's
+# eyebrow subtitle, sitewide, for more consistent brand-color presence
+---------------------------------------------------------------*/
+.section-title .subtitle {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+.section-title .subtitle::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 36px;
+  height: 3px;
+  background: var(--wz-orange);
+  border-radius: 2px;
+}
+
+/*--------------------------------------------------------------
+# Left-aligned eyebrow label — for two-column teaser sections that
+# aren't wrapped in Axis's centered .section-title (e.g. CORE/NRI
+# teasers on Home), since Axis's .subtitle styling is scoped there.
+---------------------------------------------------------------*/
+.wz-eyebrow {
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--wz-orange);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+}
+
+/*--------------------------------------------------------------
+# "Why Wyizeman" feature items (Identify / Evaluate / Facilitate) —
+# Axis's own .feature-item/.icon-wrapper styling only applies under
+# .why-us, but this content lives under #about, so it rendered as
+# plain text. Scoped fix below, independent of Axis's scoping.
+---------------------------------------------------------------*/
+#about .feature-item {
+  text-align: center;
+  padding: 32px 24px;
+  background: var(--surface-color);
+  border-radius: 10px;
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 10px rgba(28, 43, 57, 0.06);
+}
+
+#about .feature-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 32px -8px rgba(28, 43, 57, 0.18);
+}
+
+#about .icon-wrapper {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--wz-orange);
+  color: #ffffff;
+  font-size: 26px;
+}
+
+#about .col-lg-4:nth-child(2) .icon-wrapper {
+  background: var(--accent-color);
+}
+
+#about .feature-content h3 {
+  color: var(--wz-orange);
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+#about .col-lg-4:nth-child(2) .feature-content h3 {
+  color: var(--accent-color);
+}
+
+/*--------------------------------------------------------------
+# "Our Discipline" principle cards — center-aligned, orange headings
+# (scoped to #why-us only, doesn't affect .wz-card elsewhere)
+---------------------------------------------------------------*/
+#why-us .wz-card {
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+#why-us .wz-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 32px -8px rgba(28, 43, 57, 0.18);
+  border-color: var(--accent-color);
+}
+
+#why-us .wz-card h3 {
+  color: var(--wz-orange);
+}
+
+/*--------------------------------------------------------------
+# "Access" cards (Curated Real Estate / CORE by Wyizeman) —
+# top accent bar + hover lift, so they're not just plain text blocks
+---------------------------------------------------------------*/
+.wz-access-card {
+  position: relative;
+  border-top: 4px solid transparent;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.wz-access-card-orange { border-top-color: var(--wz-orange); }
+.wz-access-card-blue { border-top-color: var(--accent-color); }
+
+.wz-access-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px -10px rgba(28, 43, 57, 0.2);
+}
+
+/* The underlying Axis .service-item::before hover bar is always accent-color (blue);
+   on the card whose default top border is already blue, override it to orange on hover
+   so the hover state isn't redundant with the static state. */
+.wz-access-card-blue::before {
+  background: linear-gradient(90deg, var(--wz-orange), color-mix(in srgb, var(--wz-orange), var(--heading-color) 30%)) !important;
+}
+
+/* Access photos: grayscale by default, full color on card hover */
+.wz-access-card .wz-photo img {
+  filter: grayscale(100%);
+  transition: filter 0.4s ease;
+}
+
+.wz-access-card:hover .wz-photo img {
+  filter: grayscale(0%);
+}
+
+/*--------------------------------------------------------------
+# "Focus Areas" (Investment Focus) icons — turn orange on hover
+# (scoped to #portfolio only; Access section icons keep default blue)
+---------------------------------------------------------------*/
+#portfolio .service-item:hover .service-icon {
+  background: linear-gradient(135deg, var(--wz-orange), color-mix(in srgb, var(--wz-orange), var(--heading-color) 20%));
 }
