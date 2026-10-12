@@ -690,6 +690,154 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 1rem;
 }
 
+.wz-eyebrow-blue {
+  color: var(--accent-color);
+}
+
+/* Lower-padding variant of .wz-section for content-thin sections
+   (a short statement, a bare heading before a carousel) so they don't
+   carry the same generous whitespace as content-heavy sections. */
+.wz-section-tight { padding: 26px 0; }
+
+@media (max-width: 575px) {
+  .wz-section-tight { padding: 20px 0; }
+}
+
+/* Explicit per-section top accent bar — hand-paired with each section's
+   eyebrow color so section boundaries read as distinct while scrolling,
+   rather than relying only on the light-background toggle. */
+.wz-accent-orange,
+.wz-accent-blue {
+  position: relative;
+}
+
+.wz-accent-orange::before,
+.wz-accent-blue::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+}
+
+.wz-accent-orange::before { background: var(--wz-orange); }
+.wz-accent-blue::before { background: var(--accent-color); }
+
+/* Alternating colored card headings on the inner pages (Approach, Investments,
+   CORE, NRI, About) — scoped via the .inner-page body class so Home's #why-us
+   (already ID-scoped orange) and the legal pages are unaffected. Column position
+   within the row decides the color, independent of exact Bootstrap col-* class. */
+.inner-page .row > [class*="col-"]:nth-child(odd) .wz-card h3,
+.inner-page .row > [class*="col-"]:nth-child(odd) .wz-card h4 {
+  color: var(--wz-orange);
+}
+
+.inner-page .row > [class*="col-"]:nth-child(even) .wz-card h3,
+.inner-page .row > [class*="col-"]:nth-child(even) .wz-card h4 {
+  color: var(--accent-color);
+}
+
+/*--------------------------------------------------------------
+# Numbered pointer badges — replaces the plain checkmark .wz-list
+# on inner pages' short feature/pointer lists. Ties into the numeral
+# motif already used by the criteria carousel and CORE's process chain.
+---------------------------------------------------------------*/
+.wz-point-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.wz-point-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 14px;
+  color: var(--default-color);
+}
+
+.wz-point-list .pt {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-family: var(--heading-font);
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  margin-top: 1px;
+}
+
+.wz-point-list li:nth-child(odd) .pt { background: var(--wz-orange); }
+.wz-point-list li:nth-child(even) .pt { background: var(--accent-color); }
+
+/*--------------------------------------------------------------
+# Per-page section-identity devices. The top accent bar (.wz-accent-orange/
+# -blue) stays Approach-only, where it reads well against its text+photo
+# side-by-side layout. The other inner pages each get their own device
+# instead of repeating the same bar, so the site doesn't feel like one
+# formula copy-pasted down every page.
+---------------------------------------------------------------*/
+
+/* Investments — left rule beside the heading block only (not the full
+   section width), so it never visually collides with a photo above it. */
+.wz-rule-orange,
+.wz-rule-blue {
+  border-left: 4px solid;
+  padding-left: 22px;
+}
+
+.wz-rule-orange { border-color: var(--wz-orange); }
+.wz-rule-blue { border-color: var(--accent-color); }
+
+/* CORE — large faint background numeral per section, tying into the
+   numeral motif already used by the criteria carousel and process chain. */
+.wz-numbered-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.wz-bg-numeral {
+  position: absolute;
+  top: -0.25em;
+  right: 0.4em;
+  font-family: var(--heading-font);
+  font-size: 180px;
+  font-weight: 700;
+  line-height: 1;
+  opacity: 0.06;
+  pointer-events: none;
+  z-index: 0;
+  user-select: none;
+}
+
+.wz-numbered-section > .container { position: relative; z-index: 1; }
+
+@media (max-width: 767px) {
+  .wz-bg-numeral { font-size: 110px; }
+}
+
+/* NRI — small colored pill badge marking each step of the before/during/after
+   journey, replacing a plain eyebrow that was just restating the heading. */
+.wz-phase-badge {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.wz-phase-badge-orange { background: var(--wz-orange); }
+.wz-phase-badge-blue { background: var(--accent-color); }
+
 /*--------------------------------------------------------------
 # "Why Wyizeman" feature items (Identify / Evaluate / Facilitate) —
 # Axis's own .feature-item/.icon-wrapper styling only applies under
